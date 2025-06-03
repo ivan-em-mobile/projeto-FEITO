@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lampada</title>
+    <link rel="shortcut icon" href="/assets/favicon estrela.png" type="image/x-icon">
+
+
+
+    <style>
+        :root {
+            --eu: #0000ff;
+            --may: #800080;
+            --ray: #008000;
+
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        body {
+            background: var(--may);
+            background-image: linear-gradient(to top),
+            var(--eu), var(--may);
+            background-attachment: fixed;
+        }
+
+        header,
+        section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button {
+            width: 80px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Lâmpada</h1>
+    </header>
+    <section>
+        <div>
+            <img src="assets/lampOff.jpeg" alt="lampada" id="lamp">
+        </div>
+
+        <div>
+            <button id="turnOff">bomDia</button>
+            <button id="turnOn">boaNoite</button>
+        </div>
+    </section>
+
+
+
+</body>
+<script>
+    const turnOn = document.getElementById ('turnOn');
+    const turnOff = document.getElementById ('turnOff');
+    const lampBroken = document.getElementById ('lampBroken');
+
+    function isLampBroken () {
+        return lamp.src.indexOf ('lampBroken') > -1
+    }
+
+    function lampOn () {
+        if (!isLampBroken()) {
+            lamp.src = './assets/lampOn.jpeg';
+
+        }
+    }
+
+    function lampOff () {
+        if (!isLampBroken()) {
+            lamp.src = './assets/lampOff.jpeg';
+        }
+    }
+
+    function isLampBroken () {
+        lamp.src = './assets/lampBroken.jpeg';
+    }
+
+    turnOn.addEventListener ('click', lampOn);
+    turnOff.addEventListener ('click', lampOff);
+
+    lamp.addEventListener ('mouseover', lampOn);
+    lamp.addEventListener('mouseleave', lampOff);
+    lamp.addEventListener ('dblclick', isLampBroken);
+
+    
+
+</script>
+</html>
